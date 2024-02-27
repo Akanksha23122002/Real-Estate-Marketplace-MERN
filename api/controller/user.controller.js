@@ -1,8 +1,4 @@
-export const test = (req , res) => {
+export const test=(req,res)=>{
     res.json({
-     message : 'or suno bete ',
-    })
+        message:"Hello world"});
 }
-//This is feature 1 branch
-
-

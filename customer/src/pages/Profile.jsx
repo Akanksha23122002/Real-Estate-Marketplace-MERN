@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+    <h1 className='text3-xl font-semibold text-center my-7'>Profile</h1></div>
   )
 }

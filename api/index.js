@@ -1,9 +1,13 @@
 import express from 'express'
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv'
-import userRouter from './routes/user.route.js'
-import authRouter from './routes/auth.route.js'
+import dotenv from 'dotenv';
+import userRouter from './routes/user.route.js';
+import authRouter from './routes/auth.route.js';
+import cookieParser from 'cookie-parser';
+import listingRouter from './routes/listing.route.js';
+
+
 
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(()=>{
@@ -14,6 +18,8 @@ mongoose.connect(process.env.MONGO).then(()=>{
 })
 const app=express();
 app.use(cors());
+
+app.use(cookieParser());
 app.use(express.json());
 
 app.listen(3000,()=>{
@@ -22,6 +28,7 @@ app.listen(3000,()=>{
 );
 app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
+app.use('/api/listing',listingRouter);
 
 //middleware
 app.use((err , req ,res, next) => {

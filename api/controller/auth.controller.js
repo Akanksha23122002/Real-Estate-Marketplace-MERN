@@ -25,7 +25,13 @@ try {
    const validPassword = bcrypt.compareSync(password , validUser.password);
    if(!validPassword) return next(errorHandler(404 , 'Wrong Credentials')) //next id for giving control to the middleware
    
-const token = jwt.sign({id : validUser._id},process.env.JWT_SECRET); // scret key to make the token unique
+const token = jwt.sign({id : validUser._id},process.env.JWT_SECRET);
+const { password: pass, ...rest} = validUser._doc;//hiding password
+res
+.cookie('access_token', token, {
+   httpOnly: true})
+   .status(200)
+   .json(rest);// scret key to make the token unique
 //A "TOKEN" typically refers to a piece of data used for authentication and authorization. Tokens are
 // commonly used in web applications, including those built with React, to manage user sessions securely.
 const { password : pass , ...rest} = validUser._doc ; // to hide the password even in hash form

@@ -1,4 +1,4 @@
-import videoback from "./images/video.mp4"
+
 import backgroundImage from "./images/Property-.jpg";
 
 
@@ -11,14 +11,7 @@ export default function Home() {
       }}
     > 
      
-     <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-      >
-     <source src={videoback} type="video/mp4" />
-      </video>
+   
     </div>
   );
 }

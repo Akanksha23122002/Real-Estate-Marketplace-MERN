@@ -19,13 +19,9 @@ export default  function ContactForm(){
     
     const handleSubmit = async(e) =>{
         e.preventDefault();
-         if(fullname.length==0||phone.length==0||email.length==0){
-            setError(true)
-         }
-         if(fullname&&phone&&email)
-         {
-        console.log("FullName:",fullname,"\nPhone:",phone,"\nEmail:",email)
-         }
+        console.log("FullName:",fullname)
+        console.log("Phone:",phone,)
+        console.log("Email:",email)
         console.log("Houses:",houses );
         console.log("MaxPrice:",maxPrice);
         console.log("MinSize:",minSize );
@@ -35,6 +31,10 @@ export default  function ContactForm(){
         headers:{
             "Content-type":"application/json"
         },
+        body: JSON.stringify({
+            fullname,
+            phone,email,
+        })
        
        });
 

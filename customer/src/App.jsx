@@ -8,7 +8,7 @@ import Profile from "./pages/Profile"
 import Header from './components/Header';
 
 import PrivateRoute from './components/PrivateRoute';
-import CreateListing from './pages/createListing';
+import CreateListing from './pages/CreateListing';
 import Gallery from './pages/Gallery';
 import ContactForm from './components/contactForm';
 
@@ -17,7 +17,7 @@ import ContactForm from './components/contactForm';
 
 export default function App() {
   return <BrowserRouter>
-     {/* <Header /> */}
+     <Header />
     <Routes>
     <Route path='/' element = {<Home/>} />
     <Route path='/sign-in' element = {<SignIn/>} />
